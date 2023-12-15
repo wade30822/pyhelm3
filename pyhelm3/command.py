@@ -553,7 +553,7 @@ class Command:
             command.extend(["--version", version])
         if wait:
             command.extend(["--wait", "--wait-for-jobs"])
-        return json.loads(await self.run(command, yaml.load(values or {}).encode()))
+        return json.loads(await self.run(command, yaml.dump(values or {}).encode()))
 
     async def list(
         self,
